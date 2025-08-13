@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie's Corner</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/project_icon.png">
+    <style>
+        /* Simple animation for background elements */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-animation {
+            animation: float 5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo with glow effect -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full blur-sm opacity-70"></div>
+                        <div class="relative">
+                            <img src="img/project_icon.png" alt="Logo" class="w-10 h-10 rounded-full object-cover border-2 border-white">
+                        </div>
+                    </div>
+                    <span class="font-bold text-2xl text-gray-800">Foodie's Corner</span>
+                </a>
+                
+                <!-- Right side navigation and cart -->
+                <div class="flex items-center gap-6">
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center space-x-6">
+                        <a href="index.html" class="text-gray-700 hover:text-yellow-500 font-medium">
+                            <i class="fas fa-home mr-2"></i>Home
+                        </a>
+                        <a href="menu.html" class="text-gray-700 hover:text-yellow-500 font-medium">
+                            <i class="fas fa-utensils mr-2"></i>Menu
+                        </a>
+                        <a href="menu.html?page=cart" class="relative" id="home-cart-link">
+                            <i class="fas fa-shopping-cart text-gray-700 hover:text-yellow-500"></i>
+                            <span id="home-cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        </a>
+                    </nav>
+                    
+                    <!-- Mobile menu button -->
+                    <button type="button" class="md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation (hidden by default) -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="py-3 border-t">
+                    <a href="index.html" class="block py-2 text-gray-700">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <a href="menu.html" class="block py-2 text-gray-700">
+                        <i class="fas fa-utensils mr-2"></i>Menu
+                    </a>
+                    <a href="menu.html?page=cart" class="block py-2 text-gray-700">
+                        <i class="fas fa-shopping-cart mr-2"></i>Cart
+                        <span class="inline-block bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 text-center leading-5 ml-1 mobile-cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <!-- Hero Section -->
+    <section class="bg-blue-800 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <!-- Left text content -->
+                <div class="w-full lg:w-1/2 mb-10 lg:mb-0">
+                    <!-- Simple floating circle animation -->
+                    <div class="relative">
+                        <div class="absolute -top-10 -left-10 w-20 h-20 bg-yellow-500 rounded-full opacity-20 float-animation"></div>
+                        
+                        <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-800 text-xs font-semibold mb-4">BEST IN TOWN</span>
+                        
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                            <span class="block">Taste the</span>
+                            <span class="text-yellow-400 block">Extraordinary</span>
+                            <span class="block">Experience</span>
+                        </h1>
+                        
+                        <p class="text-blue-100 text-lg mb-8">
+                            Discover authentic flavors crafted with passion. Our chefs prepare each dish with the finest ingredients.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <a href="menu.html" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                                <i class="fas fa-utensils mr-2"></i>Explore Menu
+                            </a>
+                            <a href="#featured" class="bg-white hover:bg-gray-100 text-blue-800 font-bold py-3 px-6 rounded-lg transition-colors">
+                                <i class="fas fa-star mr-2"></i>Featured Items
+                            </a>
+                        </div>
+                        
+                        <!-- Simple customer indicator -->
+                        <div class="mt-8 text-blue-100">
+                            <span class="font-semibold">500+</span> happy customers this week
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right image content -->
+                <div class="w-full lg:w-1/2 relative">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <!-- Main image -->
+                        <img src="img/hero_banner.png" alt="Delicious Food" class="w-full h-auto">
+                        
+                        <!-- Simple overlay with one badge -->
+                        <div class="absolute top-4 right-4 bg-yellow-400 text-gray-800 rounded-lg p-2 shadow-md">
+                            <p class="font-bold">Fast Delivery</p>
+                            <p class="text-sm">30-45 mins</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section id="featured" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl font-bold mb-4">Featured This Week</h2>
+                <div class="h-1 w-24 bg-yellow-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Discover our chef's special selections, prepared with the finest ingredients.</p>
+            </div>
+            
+            <!-- Featured Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Biryani Card -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="img/biriyani.jpeg" alt="Kacchi Biryani" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+                            POPULAR
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Kacchi Biryani</h3>
+                        <p class="text-gray-600 mb-4">Aromatic basmati rice layered with tender mutton, slow-cooked with authentic spices.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-bold text-gray-900">৳350</span>
+                            <a href="menu.html" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-4 py-2 rounded-lg">
+                                Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chicken Tikka Card -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="img/chicken_tikka.jpeg" alt="Chicken Tikka" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+                            BEST SELLER
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Chicken Tikka</h3>
+                        <p class="text-gray-600 mb-4">Juicy, smoky chicken pieces marinated in yogurt and aromatic spices, grilled to perfection.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-bold text-gray-900">৳220</span>
+                            <a href="menu.html" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-4 py-2 rounded-lg">
+                                Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View All Button -->
+            <div class="text-center mt-10">
+                <a href="menu.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg inline-flex items-center">
+                    <span>Explore Full Menu</span>
+                    <i class="fas fa-utensils ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="border-t py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Foodie's Corner. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Simple mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Update cart count from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartCount = document.getElementById('home-cart-count');
+            const mobileCounts = document.querySelectorAll('.mobile-cart-count');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            // Update all cart count indicators
+            cartCount.textContent = totalItems;
+            mobileCounts.forEach(count => {
+                count.textContent = totalItems;
+            });
+        });
+    </script>
+</body>
+</html>
